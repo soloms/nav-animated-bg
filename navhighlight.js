@@ -22,6 +22,9 @@
 *		$(".selector").navHighlight({
 *			direction: 'horizontal',
 *			speed : 400,
+*			itemelm: 'li',
+*			activeAttribute: 'background',
+*			activeAttributeValue: 'none',
 *		});
 *	});
 *	</script>
@@ -32,11 +35,13 @@
         options = $.extend({
 			direction: 'vertical',
 			speed: 400,
-			itemelm: 'li'
+			itemelm: 'li',
+			activeAttribute: 'background',
+			activeAttributeValue: 'none',
         }, options);
 
     var init = function(){
-		var selected_el = $(this).find(".selected").length == 0 ? $(this).find(options.itemelm).eq(0) : $(this).find(".selected").css("background", "none"),
+		var selected_el = $(this).find(".selected").length == 0 ? $(this).find(options.itemelm).eq(0) : $(this).find(".selected").css(options.activeAttribute, options.activeAttributeValue),
 			sel_top = selected_el.position().top || 0,
 			sel_left = selected_el.position().left || 0,
 			menu_el = $(this).find(options.itemelm),
